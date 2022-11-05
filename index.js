@@ -30,7 +30,6 @@ async function getRepos(req, res, next) {
             punchline += '\''+(`${a.punchline}`) + '\'' + ((i === resData.length - 1) ? '' : ',')
         })
         console.log(punchline)
-        // const id = response.data.id
 
         // Redis 에 데이터 입력
         await redisSetEx(count, 3600, punchline)
@@ -83,5 +82,5 @@ app.get('/get/:count', apiMiddleware, getRepos);
 // 여기에 접속해서 api 데이터 확인
 
 app.listen(5009, () => {
-    console.log(`App listening on port ${PORT}`);
+    console.log(`App listening ${PORT}`);
 });
